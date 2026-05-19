@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BIGMAN OFICIAL</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            scroll-behavior:smooth;
+        }
+
+        :root{
+
+            --black:#0B0B0B;
+            --black2:#161616;
+
+            --gold:#D4A017;
+            --gold2:#F1C96B;
+
+            --white:#F5F5F5;
+            --gray:#A1A1A1;
+
+        }
+
+        body{
+            background:var(--black);
+            color:var(--white);
+            font-family:'Inter', sans-serif;
+            overflow-x:hidden;
+        }
+
+        a{
+            text-decoration:none;
+            color:inherit;
+        }
+
+        img{
+            max-width:100%;
+            display:block;
+        }
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:auto;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+
+            width:100%;
+            position:fixed;
+            top:0;
+            left:0;
+            z-index:999;
+
+            padding:20px 0;
+
+            background:rgba(0,0,0,0.6);
+            backdrop-filter:blur(10px);
+
+            border-bottom:1px solid rgba(255,255,255,0.05);
+
+        }
+
+        .nav-content{
+
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+
+        }
+
+        .logo img{
+            width:120px;
+        }
+
+        .menu{
+
+            display:flex;
+            gap:35px;
+
+        }
+
+        .menu a{
+
+            position:relative;
+            transition:0.3s;
+
+        }
+
+        .menu a::after{
+
+            content:'';
+            width:0%;
+            height:2px;
+
+            background:var(--gold);
+
+            position:absolute;
+            left:0;
+            bottom:-5px;
+
+            transition:0.3s;
+
+        }
+
+        .menu a:hover::after{
+            width:100%;
+        }
+
+        .menu a:hover{
+            color:var(--gold);
+        }
+
+        /* HERO */
+
+        .hero{
+
+            min-height:100vh;
+
+            display:flex;
+            align-items:center;
+
+            position:relative;
+
+            background:
+            linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.9)),
+            url('img/foto-cliente.png');
+
+            background-size:cover;
+            background-position:center;
+
+        }
+
+        .hero-content{
+
+            max-width:700px;
+
+        }
+
+        .hero small{
+
+            color:var(--gold);
+            letter-spacing:3px;
+            font-weight:600;
+
+        }
+
+        .hero h1{
+
+            font-size:6rem;
+            line-height:0.9;
+
+            font-family:'Bebas Neue', cursive;
+
+            margin:20px 0;
+
+            color:var(--gold);
+
+        }
+
+        .hero p{
+
+            color:var(--gray);
+
+            font-size:1.1rem;
+            line-height:1.8;
+
+            margin-bottom:40px;
+
+        }
+
+        .buttons{
+
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+
+        }
+
+        .btn{
+
+            padding:16px 35px;
+
+            border:none;
+            cursor:pointer;
+
+            border-radius:8px;
+
+            font-weight:600;
+
+            transition:0.4s;
+
+        }
+
+        .gold{
+
+            background:var(--gold);
+            color:#000;
+
+        }
+
+        .gold:hover{
+
+            transform:translateY(-5px);
+
+            box-shadow:
+            0 0 25px rgba(212,160,23,0.6);
+
+        }
+
+        .dark{
+
+            background:transparent;
+            color:#fff;
+
+            border:1px solid var(--gold);
+
+        }
+
+        .dark:hover{
+
+            background:var(--gold);
+            color:#000;
+
+        }
+
+        /* SECTION */
+
+        section{
+            padding:120px 0;
+        }
+
+        .section-title{
+
+            text-align:center;
+            margin-bottom:70px;
+
+        }
+
+        .section-title h2{
+
+            font-size:4rem;
+            font-family:'Bebas Neue', cursive;
+
+            color:var(--gold);
+
+        }
+
+        .section-title p{
+
+            color:var(--gray);
+            margin-top:10px;
+
+        }
+
+        /* SOBRE */
+
+        .about{
+
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:60px;
+            align-items:center;
+
+        }
+
+        .about-image{
+
+            position:relative;
+
+        }
+
+        .about-image img{
+
+            border-radius:20px;
+
+            height:650px;
+            object-fit:cover;
+
+            box-shadow:
+            0 0 40px rgba(212,160,23,0.15);
+
+        }
+
+        .about-text p{
+
+            color:var(--gray);
+
+            line-height:1.9;
+            margin-bottom:30px;
+
+        }
+
+        .cards{
+
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:20px;
+
+        }
+
+        .card{
+
+            background:var(--black2);
+
+            padding:25px;
+
+            border-radius:15px;
+
+            transition:0.4s;
+
+            border:1px solid transparent;
+
+        }
+
+        .card:hover{
+
+            transform:translateY(-8px);
+
+            border:1px solid var(--gold);
+
+            box-shadow:
+            0 0 20px rgba(212,160,23,0.15);
+
+        }
+
+        .card h3{
+
+            color:var(--gold);
+            margin-bottom:10px;
+
+        }
+
+        /* SERVIÇOS */
+
+        .services{
+
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:30px;
+
+        }
+
+        .service{
+
+            background:var(--black2);
+
+            padding:35px;
+
+            border-radius:18px;
+
+            transition:0.4s;
+
+            border:1px solid transparent;
+
+        }
+
+        .service:hover{
+
+            transform:translateY(-10px);
+
+            border:1px solid var(--gold);
+
+        }
+
+        .service h3{
+
+            color:var(--gold);
+            margin-bottom:15px;
+
+        }
+
+        .service p{
+
+            color:var(--gray);
+            line-height:1.7;
+
+        }
+
+        .price{
+
+            margin-top:20px;
+
+            font-size:1.8rem;
+            font-weight:bold;
+
+        }
+
+        /* GALERIA */
+
+        .gallery{
+
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:20px;
+
+        }
+
+        .gallery img{
+
+            height:400px;
+            width:100%;
+
+            object-fit:cover;
+
+            border-radius:15px;
+
+            transition:0.4s;
+
+        }
+
+        .gallery img:hover{
+
+            transform:scale(1.03);
+
+        }
+
+        /* CONTATO */
+
+        .contact{
+
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:60px;
+
+        }
+
+        .contact-info{
+
+            background:var(--black2);
+
+            padding:40px;
+
+            border-radius:20px;
+
+        }
+
+        .contact-info h3{
+
+            color:var(--gold);
+            margin-bottom:30px;
+
+            font-size:2rem;
+
+        }
+
+        .contact-info p{
+
+            margin-bottom:20px;
+            color:var(--gray);
+
+        }
+
+        .contact form{
+
+            display:flex;
+            flex-direction:column;
+            gap:20px;
+
+        }
+
+        .contact input,
+        .contact textarea{
+
+            background:var(--black2);
+
+            border:none;
+
+            padding:18px;
+
+            border-radius:10px;
+
+            color:#fff;
+
+            outline:none;
+
+        }
+
+        textarea{
+            resize:none;
+        }
+
+        /* FOOTER */
+
+        footer{
+
+            background:#050505;
+
+            padding:60px 0;
+
+            border-top:1px solid rgba(255,255,255,0.05);
+
+        }
+
+        .footer-content{
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:30px;
+            flex-wrap:wrap;
+
+        }
+
+        .footer-links{
+
+            display:flex;
+            gap:25px;
+            flex-wrap:wrap;
+
+        }
+
+        .footer-links a:hover{
+            color:var(--gold);
+        }
+
+        footer p{
+            color:var(--gray);
+        }
+
+        /* RESPONSIVO */
+
+        @media(max-width:900px){
+
+            .hero h1{
+                font-size:4rem;
+            }
+
+            .about,
+            .contact{
+
+                grid-template-columns:1fr;
+
+            }
+
+            .menu{
+                display:none;
+            }
+
+            .about-image img{
+                height:500px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <div class="navbar">
+
+        <div class="container nav-content">
+
+            <div class="logo">
+                <img src="img/logo.png" alt="">
+            </div>
+
+            <div class="menu">
+
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#contato">Contato</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- HERO -->
+
+    <section class="hero" id="inicio">
+
+        <div class="container hero-content">
+
+            <small>BIGMAN OFICIAL</small>
+
+            <h1>
+                ESTILO.<br>
+                PRESENÇA.<br>
+                ATITUDE.
+            </h1>
+
+            <p>
+                Mais que uma barbearia. Uma experiência premium para homens que valorizam aparência, confiança e personalidade.
+            </p>
+
+            <div class="buttons">
+
+                <a href="https://wa.me/5521977287082" target="_blank">
+
+                    <button class="btn gold">
+                        Agendar Horário
+                    </button>
+
+                </a>
+
+                <button class="btn dark">
+                    Conhecer Serviços
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SOBRE -->
+
+    <section id="sobre">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Sobre a BIGMAN</h2>
+
+                <p>
+                    A experiência premium que transforma seu visual.
+                </p>
+
+            </div>
+
+            <div class="about">
+
+                <div class="about-image">
+
+                    <img src="img/foto-cliente.png" alt="">
+
+                </div>
+
+                <div class="about-text">
+
+                    <p>
+                        A BIGMAN nasceu para redefinir o conceito de barbearia moderna. 
+                        Aqui cada detalhe importa. Trabalhamos com cortes modernos, acabamento impecável e atendimento diferenciado para entregar uma experiência única.
+                    </p>
+
+                    <div class="cards">
+
+                        <div class="card">
+
+                            <h3>Premium</h3>
+
+                            <p>
+                                Atendimento exclusivo e ambiente sofisticado.
+                            </p>
+
+                        </div>
+
+                        <div class="card">
+
+                            <h3>Especialistas</h3>
+
+                            <p>
+                                Profissionais preparados para qualquer estilo.
+                            </p>
+
+                        </div>
+
+                        <div class="card">
+
+                            <h3>Conforto</h3>
+
+                            <p>
+                                Ambiente climatizado e moderno.
+                            </p>
+
+                        </div>
+
+                        <div class="card">
+
+                            <h3>Qualidade</h3>
+
+                            <p>
+                                Produtos profissionais de alto padrão.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SERVIÇOS -->
+
+    <section id="servicos">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Serviços</h2>
+
+                <p>
+                    Precisão em cada detalhe.
+                </p>
+
+            </div>
+
+            <div class="services">
+
+                <div class="service">
+
+                    <h3>Corte Tradicional</h3>
+
+                    <p>
+                        Visual alinhado e acabamento impecável.
+                    </p>
+
+                    <div class="price">
+                        R$ 45
+                    </div>
+
+                </div>
+
+                <div class="service">
+
+                    <h3>Fade</h3>
+
+                    <p>
+                        Precisão, modernidade e personalidade.
+                    </p>
+
+                    <div class="price">
+                        R$ 55
+                    </div>
+
+                </div>
+
+                <div class="service">
+
+                    <h3>Barba Completa</h3>
+
+                    <p>
+                        Modelagem profissional e toalha quente.
+                    </p>
+
+                    <div class="price">
+                        R$ 35
+                    </div>
+
+                </div>
+
+                <div class="service">
+
+                    <h3>Corte + Barba</h3>
+
+                    <p>
+                        O pacote premium completo.
+                    </p>
+
+                    <div class="price">
+                        R$ 75
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- GALERIA -->
+
+    <section id="galeria">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Nossos Trabalhos</h2>
+
+                <p>
+                    Cada corte carrega identidade.
+                </p>
+
+            </div>
+
+            <div class="gallery">
+
+                <img src="img/foto-cliente.png" alt="">
+                <img src="img/foto-cliente.png" alt="">
+                <img src="img/foto-cliente.png" alt="">
+                <img src="img/foto-cliente.png" alt="">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTATO -->
+
+    <section id="contato">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Contato</h2>
+
+                <p>
+                    Agende agora seu horário.
+                </p>
+
+            </div>
+
+            <div class="contact">
+
+                <div class="contact-info">
+
+                    <h3>BIGMAN OFICIAL</h3>
+
+                    <p>
+                        📍 Rua Francisco Enes, 29
+                    </p>
+
+                    <p>
+                        📞 (21) 97728-7082
+                    </p>
+
+                    <p>
+                        ⏰ Segunda a Domingo — 08h às 20h
+                    </p>
+
+                    <p>
+                        📸 @bigman_oficial
+                    </p>
+
+                </div>
+
+                <form>
+
+                    <input type="text" placeholder="Seu nome">
+
+                    <input type="text" placeholder="Telefone">
+
+                    <input type="text" placeholder="Serviço">
+
+                    <textarea rows="5" placeholder="Mensagem"></textarea>
+
+                    <a href="https://wa.me/5521977287082" target="_blank">
+
+                        <button class="btn gold" type="button">
+                            Agendar pelo WhatsApp
+                        </button>
+
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <div class="logo">
+
+                <img src="img/logo.png" alt="">
+
+            </div>
+
+            <div class="footer-links">
+
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#contato">Contato</a>
+
+            </div>
+
+            <p>
+                BIGMAN OFICIAL © 2026 — Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
